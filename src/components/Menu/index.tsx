@@ -1,20 +1,16 @@
-import { useState } from "react";
+import { DarkModeSwitch } from "./components/DarkModeSwitch";
 import { Search } from "./components/Search";
 import { StyledMenu } from "./style";
 
-interface MenuProps{
-  filterValue: string,
-  handleFilterValue:(name: string) => void
-}
-
-export function Menu({filterValue, handleFilterValue}:MenuProps) {
+export function Menu() {
   
   return (
     <StyledMenu>
       <div>
         <Logo />
       </div>
-      <Search filterValue={filterValue} handleFilterValue={handleFilterValue}/>
+      <Search/>
+      <DarkModeSwitch/>
     </StyledMenu>
   );
 }

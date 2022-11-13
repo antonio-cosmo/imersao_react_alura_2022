@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
 export const StyledHeader = styled.div`
+    background-color: ${({ theme }) => theme.backgroundLevel1};
     img {
         width: 80px;
         height: 80px;
         border-radius: 50%;
     }
     .user-info {
-        margin-top: 50px;
         display: flex;
         align-items: center;
         width: 100%;
@@ -19,7 +19,7 @@ export const StyledHeader = styled.div`
 interface StyleBannerProps{
     bg: string
 }
-export const StyledBanner = styled.div<S>`
+export const StyledBanner = styled.div<StyleBannerProps>`
     background-color: blue;
     background-image: url(${({ bg }) => bg});
     height: 230px;

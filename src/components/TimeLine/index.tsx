@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import { SearchContext } from "../../context/searchContext";
 import { StyledTimeline } from "./style";
 
 interface Category{
@@ -12,11 +14,11 @@ interface PlayLists{
 
 interface TimeLineProps{
     playlists: PlayLists
-    searchValue: string
 }
-export function Timeline({searchValue, playlists}:TimeLineProps) {
+export function Timeline({playlists}:TimeLineProps) {
+    const {filterValue} = useContext(SearchContext)
     const playlistNames = Object.keys(playlists);
-   
+    
     return (
         <StyledTimeline>
             {playlistNames.map((playlistName) => {
@@ -25,20 +27,10 @@ export function Timeline({searchValue, playlists}:TimeLineProps) {
                     <section key={playlistName}>
                         <h2>{playlistName}</h2>
                         <div>
-                            {/* {videos.map((video) => {
-                                return (
-                                    <a href={video.url} key={video.url}>
-                                        <img src={video.thumb} />
-                                        <span>
-                                            {video.title}
-                                        </span>
-                                    </a>
-                                )
-                            })} */}
                             {videos
                                 .filter((video) => {
                                     const titleNormalized = video.title.toLowerCase();
-                                    const searchValueNormalized = searchValue.toLowerCase();
+                                    const searchValueNormalized = filterValue.toLowerCase();
                                     return titleNormalized.includes(searchValueNormalized)
                                 })
                                 .map((video) => {

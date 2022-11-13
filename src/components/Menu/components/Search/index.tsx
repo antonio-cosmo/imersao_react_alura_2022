@@ -1,11 +1,9 @@
+import { useContext } from "react";
+import { SearchContext } from "../../../../context/searchContext";
 import { StyledSearch } from "./style";
 
-interface SearchProps{
-    filterValue: string,
-    handleFilterValue:(name: string) => void
-}
-export function Search({ filterValue, handleFilterValue }:SearchProps) {
-    
+export function Search() {
+    const {filterValue, handleFilterValue} = useContext(SearchContext)
    
 
     return (

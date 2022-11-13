@@ -1,8 +1,8 @@
-import { useState } from 'react';
 import config from '../config.json'
-import {Header} from './components/Header'
-import {Menu} from "./components/Menu"
-import { Timeline } from './components/TimeLine';
+import {Header} from '../components/Header'
+import {Menu} from "../components/Menu"
+import { Timeline } from '../components/TimeLine';
+import { StyledHome } from '../styles/style.home';
 
 interface User{
         name: string,
@@ -12,8 +12,7 @@ interface User{
 }
 
 export default function Home() {
-    const [filterValue, setFilterValue] = useState('')
-    
+
     const {name, job, github, bg}= config
     const user:User = {
         name,
@@ -22,21 +21,15 @@ export default function Home() {
         bg
     }
 
-    const handleFilterValue= (name: string)=>{
-        setFilterValue(name)
-    }
+   
   return (
     <>
-        <div style={{
-            display: "flex",
-            flexDirection: "column",
-            flex: 1,
-        }}>
-            <Menu filterValue={filterValue} handleFilterValue={handleFilterValue} />
+        <StyledHome>
+            <Menu/>
             <Header {...user}/>
-            <Timeline searchValue={filterValue} playlists={config.playlists}/>
+            <Timeline playlists={config.playlists}/>
             
-        </div>
+        </StyledHome>
     </>
 );
 }
