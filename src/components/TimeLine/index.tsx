@@ -3,9 +3,9 @@ import { SearchContext } from "../../context/searchContext";
 import { StyledTimeline } from "./style";
 
 interface Category{
-    title: string,
-    url: string,
-    thumb:string
+    title: string
+    url: string
+    thumb: string
 }
 interface PlayLists{
   [name: string]: Category[]

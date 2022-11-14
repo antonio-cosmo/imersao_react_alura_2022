@@ -2,6 +2,7 @@
 import type { AppProps } from 'next/app'
 import { ReactNode, useContext } from 'react';
 import { ThemeProvider } from 'styled-components';
+import RegisterVideo from '../components/RegisterVideo';
 import ColorModeProvider, { ColorModeContext } from '../context/colorMode'
 import { SearchProvider } from '../context/searchContext'
 import { CSSReset } from '../styles/globals'
@@ -29,6 +30,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <CSSReset/>
           <SearchProvider>
             <Component {...pageProps} />
+            <RegisterVideo/>
           </SearchProvider>
       </ThemeProvider>
 

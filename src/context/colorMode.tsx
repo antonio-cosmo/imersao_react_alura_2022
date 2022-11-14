@@ -1,14 +1,7 @@
 import { createContext, ReactNode, useState } from "react";
 
-// export const ColorModeContext = createContext({
-//     mode: "",
-//     setMode: () => { alert("Você precisa me configurar primeiro!")  },
-//     toggleMode: () => { alert("Você precisa me configurar primeiro!")  },
-// });
-
 interface ColorModeContextData{
     mode: string,
-    handleMode: (value: string) => void,
     toggleMode: () => void
 }
 
@@ -30,7 +23,7 @@ export default function ColorModeProvider({children, initialMode}:ColorModeProvi
     }
 
     return (
-        <ColorModeContext.Provider value={{ mode, handleMode, toggleMode}}>
+        <ColorModeContext.Provider value={{ mode, toggleMode}}>
             {children}
         </ColorModeContext.Provider>
     );
