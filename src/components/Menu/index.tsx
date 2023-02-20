@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { DarkModeSwitch } from "./components/DarkModeSwitch";
 import { Search } from "./components/Search";
 import { StyledMenu } from "./style";
@@ -6,9 +7,9 @@ export function Menu() {
   
   return (
     <StyledMenu>
-      <div>
+      <Link href='/'>
         <Logo />
-      </div>
+      </Link>
       <Search/>
       <DarkModeSwitch/>
     </StyledMenu>

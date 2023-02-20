@@ -13,9 +13,6 @@ export const ColorModeContext = createContext<ColorModeContextData>({} as ColorM
 
 export default function ColorModeProvider({children, initialMode}:ColorModeProviderProps) {
     const [mode, setMode] = useState(initialMode);
-    const handleMode = (value: string)=>{
-        setMode(value)
-    }
 
     const toggleMode = () => {
         if(mode === "dark") setMode("light");

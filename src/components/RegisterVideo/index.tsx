@@ -5,12 +5,16 @@ import { StyledRegisterVideo } from "./style";
 interface formData{
     titulo: string,
     url: string,
-    playlist: string
+    playlist: string,
 
 }
 
 function getThumbnail(url:string) {
     return `https://img.youtube.com/vi/${url.split("v=")[1]}/hqdefault.jpg`;
+}
+
+function getIdVideo(url:string){
+    return url.split('v=')[1]
 }
 
 function useForm() {
@@ -43,6 +47,7 @@ export default function RegisterVideo() {
             url: formCadastro.values.url,
             thumb: getThumbnail(formCadastro.values.url),
             playlist: formCadastro.values.playlist,
+            idVideo: getIdVideo(formCadastro.values.url)
         })
 
         setFormVisivel(false);
@@ -55,7 +60,7 @@ export default function RegisterVideo() {
             </button>
             {formVisivel
                 ? (
-                    <form onSubmit={handleOnSubmit}>
+                    <form onSubmit={handleOnSubmit} >
                         <div>
                             <button type="button" className="close-modal" onClick={() => setFormVisivel(false)}>
                                 X

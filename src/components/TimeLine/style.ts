@@ -33,6 +33,23 @@ export const StyledTimeline = styled.div`
       grid-auto-columns: minmax(200px,1fr);
       overflow-x: scroll;
       scroll-snap-type: x mandatory;
+      /* &::-webkit-scrollbar {
+        width: 12px;               
+      }
+
+      &::-webkit-scrollbar-track {
+        background: red;        
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: blue;    
+        border-radius: 20px;       
+        border: 3px solid orange;  
+      }
+      
+        scrollbar-width: thin;          
+        scrollbar-color: blue orange;    */
+     
       a {
         scroll-snap-align: start;
         span {

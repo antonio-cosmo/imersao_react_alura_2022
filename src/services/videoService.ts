@@ -9,6 +9,7 @@ interface formData{
     url: string
     thumb: string
     playlist: string
+    idVideo: string
 }
 export function videoService() {
     return {
@@ -16,15 +17,14 @@ export function videoService() {
             return await supabase.from("video")
                     .select("*");
         },
-        async createVideo({title, url, thumb, playlist}:formData){
+        async createVideo({title, url, thumb, playlist, idVideo}:formData){
             const res = await supabase.from("video").insert({
                 title,
                 url,
                 thumb,
-                playlist
+                playlist,
+                idVideo
              })
-
-             console.log(res)
         }
     }
 }

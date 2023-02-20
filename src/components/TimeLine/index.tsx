@@ -1,3 +1,5 @@
+import Image from "next/image";
+import Link from "next/link";
 import { useContext } from "react";
 import { SearchContext } from "../../context/searchContext";
 import { StyledTimeline } from "./style";
@@ -6,6 +8,7 @@ interface Category{
     title: string
     url: string
     thumb: string
+    idVideo: string
 }
 interface PlayLists{
   [name: string]: Category[]
@@ -23,6 +26,7 @@ export function Timeline({playlists}:TimeLineProps) {
         <StyledTimeline>
             {playlistNames.map((playlistName) => {
                 const videos = playlists[playlistName];
+
                 return (
                     <section key={playlistName}>
                         <h2>{playlistName}</h2>
@@ -35,12 +39,13 @@ export function Timeline({playlists}:TimeLineProps) {
                                 })
                                 .map((video) => {
                                     return (
-                                        <a key={video.url} href={video.url}>
-                                            <img src={video.thumb} />
+                                        <Link key={video.idVideo} href={`/video/${video.idVideo}`}>
+                                        
+                                            <Image loader={()=> video.thumb} src='video.img' alt='' width={200} height={200}/>
                                             <span>
                                                 {video.title}
                                             </span>
-                                        </a>
+                                        </Link>
                                     )
                                 })}
                         </div>
